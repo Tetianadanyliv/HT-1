@@ -29,7 +29,7 @@ console.log (`Округлення значення в меньшу сторон
 console.log (`Округлення значення в меньшу сторону Products ${Math.floor(totalamount)}`);
 
 /*сума товарів округлену до сотень.*/
-console.log ( `Сума товарів округлена до сотень ${Math.ceil(totalamount/100)*100}`);
+console.log ( `Сума товарів округлена до сотень ${Math.round(totalamount/100)*100}`);
 
 
 /*булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним
@@ -51,16 +51,19 @@ if (totalamount % 2 === 0) {
  console.log (`Average value - ${Averagevalue}`);
 
 /* випадкова знижка*/
-const discount = (Math.random() * 99 + 1).toFixed(0);
+const discount = (Math.random() * 100).toFixed(0);
 console.log (`Client discount - ${discount}`);
+
+/*const priceWithDiscount = (sumOfProducts - (sumOfProducts / 100 * discount)).toFixed(2);
+console.log(`Сума до оплати зі знижкою: ${priceWithDiscount} грн`);*/
 
 /*Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів
 рівно в два рази нижче їх ціни?*/
-const priceAfterDiscount = (totalamount - discount).toFixed(2);
-console.log (`Price after discount - ${priceAfterDiscount}` );
+const priceAfterDiscount = (totalamount - (totalamount/100 * discount)).toFixed(2);
+console.log (`Price after discount - ${priceAfterDiscount} грн`);
 
-const profit = (totalamount/2 - priceAfterDiscount).toFixed(0);
-console.log (`Profit -  ${profit}`)
+const profit = (totalamount/2- priceAfterDiscount).toFixed(0);
+console.log (`Profit -  ${profit} грн`)
 
 console.log(`Tea price ${tea} Milk price ${milk} Juice price ${juice} Max product price - ${max} Min product price - ${min} Total amount of products - ${totalamount} Округлення значення в меньшу сторону ${Math.floor(tea)} ${Math.floor(milk)}${Math.floor(juice)} значення в меньшу сторону Products ${Math.floor(totalamount)} Сума товарів округлена до сотень ${Math.ceil(totalamount / 100) * 100} ClientRest - ${ClientRest} Average value - ${Averagevalue} Client discount - ${discount} Price after discount - ${priceAfterDiscount} Profit -  ${profit}`);
 
